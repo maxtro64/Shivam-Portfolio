@@ -1,83 +1,228 @@
-.container{
-    display: flex;
-    flex-direction: column ;
-    text-align: center;
+.container {
+  position: relative;
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--background-color);
+  color: var(--text-color);
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+.backgroundAnimation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
-textarea,input:not([type='submit']){
-    height: 50px;
-    padding-left: 16px;
-    width: 250px;
-
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.2;
 }
 
-textarea{
-    padding-top: 16px;
-    resize: none;
-    height: 250px;
+.orb1 {
+  width: 300px;
+  height: 300px;
+  background: var(--accent-color);
+  top: -100px;
+  left: -100px;
+  animation: float 8s ease-in-out infinite;
 }
 
-input,textarea{
-    border-radius:20px ;
-    border: #888 1 px solid;
-    box-sizing: border-box;
-    align-self: center;
-    background-color: var(--background-color);
-    color: var(--form-text-color);
+.orb2 {
+  width: 200px;
+  height: 200px;
+  background: var(--secondary-color);
+  bottom: -50px;
+  right: -50px;
+  animation: float 10s ease-in-out infinite 2s;
 }
 
-::placeholder{
-    color: var(--form-text-color);
+.orb3 {
+  width: 150px;
+  height: 150px;
+  background: var(--primary-color);
+  top: 50%;
+  right: 20%;
+  animation: float 12s ease-in-out infinite 1s;
 }
 
-input[type='submit']{
-    background-color: var(--btn-color);
-    color: var(--btn-text-color);
-    border: none;
-    border-radius: 20px;
-    width: 126px;
-    height: 50px;
-    font-size:20px ;
-    font-weight: bold;
-    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
-    transition: box-shadow 200ms ease-in-out,transform 200ms ease-in-out;
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(20px);
+  }
 }
 
-input[type='submit']:hover{
-    transform: scale(1.05);
+.title {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  position: relative;
+  z-index: 1;
 }
 
-input[type='submit']:active{
-    transform: translateY(2px);
-    box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+.titleVisible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
+.titleUnderline {
+  height: 4px;
+  width: 100px;
+  background: var(--accent-color);
+  margin: 0 auto 3rem;
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
 
+.underlineVisible {
+  opacity: 1;
+  transform: scaleX(1);
+}
 
+.contactForm {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+}
 
-@media (width>=800px){
-    textarea,input:not([type='submit']){
-        width: 600px;
-        font-size: 20px;
-    }
+.formVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    form{
-        gap: 40px;
-    }
-    
-@media (width>=1400px){
-    textarea,input:not([type='submit']){
-        width: 800px;
-        font-size: 20px;
-    }
+.formGroup {
+  position: relative;
+  margin-bottom: 2rem;
+}
 
-    
-    
-    }
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 1rem 0;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--input-border);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-bottom-color: var(--accent-color);
+}
+
+.formTextarea {
+  resize: none;
+}
+
+.inputUnderline,
+.textareaUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-color);
+  transition: width 0.3s ease;
+}
+
+.formInput:focus ~ .inputUnderline,
+.formTextarea:focus ~ .textareaUnderline {
+  width: 100%;
+}
+
+.submitBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.submitBtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.submitBtn.loading {
+  pointer-events: none;
+}
+
+.sendIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.statusMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.success {
+  background: rgba(46, 204, 113, 0.2);
+  color: #2ecc71;
+}
+
+.error {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.statusMessage svg {
+  width: 20px;
+  height: 20px;
 }

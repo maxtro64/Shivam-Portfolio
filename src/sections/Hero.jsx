@@ -9,7 +9,7 @@ import githublight from "/assets/github-light.svg";
 import githubdark from "/assets/github-dark.svg";
 import twitterdark from "/assets/twitter-dark.svg";
 import LinkdIndark from "/assets/linkedin-dark.svg";
-import CV from "/assets/shivamresumeintern.pdf";
+import CV from "/assets/Shivam Yadav Resume (2).pdf";
 import { useTheme } from '../common/ThemeContext';
 
 const Hero = () => {

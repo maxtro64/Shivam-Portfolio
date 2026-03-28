@@ -446,9 +446,16 @@
 .ctaButtons {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
     margin-top: 1rem;
     animation: slideUp 0.8s ease-out 1.7s both;
+}
+
+.resumeButtonGroup {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .primaryBtn {
@@ -675,8 +682,13 @@
     }
 
     .ctaButtons {
-        flex-direction: row;
+        flex-direction: column;
+        align-items: flex-start;
         gap: 1.5rem;
+    }
+
+    .resumeButtonGroup {
+        justify-content: flex-start;
     }
 
     .imageWrapper {

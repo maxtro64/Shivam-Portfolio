@@ -84,13 +84,51 @@ const Skills = () => {
 
         {/* Backend Skills */}
         <h2 className={`${style.sectionTitle} ${activeSection >= 1 ? style.sectionVisible : ''}`}>
-          Backend & Tools
+          Backend & Architecture
         </h2>
         <div className={style.skillList}>
           <SkillList src={checkMarkIcon} skill={"NODE"} delay={1400} isVisible={activeSection >= 1} />
-          <SkillList src={checkMarkIcon} skill={"MONGODB"} delay={1500} isVisible={activeSection >= 1} />
-          <SkillList src={checkMarkIcon} skill={"EXPRESSJS"} delay={1600} isVisible={activeSection >= 1} />
-          <SkillList src={checkMarkIcon} skill={"GIT"} delay={1700} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"FASTAPI"} delay={1500} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"REDIS"} delay={1600} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"MONGODB"} delay={1700} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"PINECONE"} delay={1800} isVisible={activeSection >= 1} />
+        </div>
+
+        {/* Divider */}
+        <div className={`${style.divider} ${activeSection >= 1 ? style.dividerVisible : ''}`}>
+          <div className={style.dividerLine}></div>
+          <div className={style.dividerDot}></div>
+        </div>
+
+        {/* AI & CV Skills */}
+        <h2 className={`${style.sectionTitle} ${activeSection >= 1 ? style.sectionVisible : ''}`}>
+          AI & Computer Vision
+        </h2>
+        <div className={style.skillList}>
+          <SkillList src={checkMarkIcon} skill={"PYTHON"} delay={2000} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"YOLOv8"} delay={2100} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"OPENCV"} delay={2200} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"LANGCHAIN"} delay={2300} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"TENSORFLOW"} delay={2400} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"PySide6"} delay={2500} isVisible={activeSection >= 1} />
+        </div>
+
+        {/* Divider */}
+        <div className={`${style.divider} ${activeSection >= 1 ? style.dividerVisible : ''}`}>
+          <div className={style.dividerLine}></div>
+          <div className={style.dividerDot}></div>
+        </div>
+
+        {/* AI & CV Skills */}
+        <h2 className={`${style.sectionTitle} ${activeSection >= 1 ? style.sectionVisible : ''}`}>
+          AI & Computer Vision
+        </h2>
+        <div className={style.skillList}>
+          <SkillList src={checkMarkIcon} skill={"PYTHON"} delay={2000} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"YOLOv8"} delay={2100} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"OPENCV"} delay={2200} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"LANGCHAIN"} delay={2300} isVisible={activeSection >= 1} />
+          <SkillList src={checkMarkIcon} skill={"TENSORFLOW"} delay={2400} isVisible={activeSection >= 1} />
         </div>
       </div>
 

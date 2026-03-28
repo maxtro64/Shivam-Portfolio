@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import style from "./HeroStyles.module.css";
-import heroImg from "/assets/hero-img.png";
+import heroImg from "/assets/IMG-20250507-WA0022.jpg";
 import sun from "/assets/sun.svg";
 import moon from "/assets/moon.svg";
 import LinkdInlight from "/assets/linkedin-light.svg";
@@ -9,7 +9,8 @@ import githublight from "/assets/github-light.svg";
 import githubdark from "/assets/github-dark.svg";
 import twitterdark from "/assets/twitter-dark.svg";
 import LinkdIndark from "/assets/linkedin-dark.svg";
-import CV from "/assets/shivamresumeintern.pdf";
+import CV_AI from "/assets/Shivam Yadav Resume.pdf";
+import CV_MERN from "/assets/Shivam_Yadav_Ai.pdf";
 import { useTheme } from '../common/ThemeContext';
 
 const Hero = () => {
@@ -18,10 +19,10 @@ const Hero = () => {
     const [isLoaded, setIsLoaded] = useState(false);
 
     const roles = [
-        'MERN Stack Developer',
-        'Full Stack Developer', 
-        'React Specialist',
-        'Backend Developer'
+        'Full Stack Developer',
+        'AI/ML Engineer', 
+        'Computer Vision Specialist',
+        'MERN Stack Developer'
     ];
 
     const themeIcon = theme === "light" ? sun : moon;
@@ -107,12 +108,20 @@ const Hero = () => {
                     </div>
 
                     <div className={style.ctaButtons}>
-                        <a href={CV} download className={style.primaryBtn}>
-                            <span>Download Resume</span>
-                            <svg className={style.downloadIcon} viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
-                            </svg>
-                        </a>
+                        <div className={style.resumeButtonGroup}>
+                            <a href={CV_AI} download className={style.primaryBtn}>
+                                <span>AI Resume</span>
+                                <svg className={style.downloadIcon} viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                                </svg>
+                            </a>
+                            <a href={CV_MERN} download className={style.primaryBtn}>
+                                <span>MERN Resume</span>
+                                <svg className={style.downloadIcon} viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z"/>
+                                </svg>
+                            </a>
+                        </div>
                         
                         <button className={style.secondaryBtn} onClick={() => document.getElementById('Contact').scrollIntoView({ behavior: 'smooth' })}>
                             <span>Let's Connect</span>

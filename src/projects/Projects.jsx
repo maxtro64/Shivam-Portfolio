@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react'
 import style from "./ProjectsStyles.module.css"
-import viberr from "/assets/viberr.png"
 import ProjectCard from '../common/ProjectCard'
-import ChatApp from "/assets/Chatapp.png"
-import Hospital_Management from "/assets/hospitalmanagement.png"
-import elevateyou from "/assets/elevateyou.webp"
+
+// Import New Visual Assets
+import medflow_banner from "/assets/medflow_banner.png";
+import lexisum_banner from "/assets/lexisum_banner.png";
+import blitzwing_banner from "/assets/blitzwing_banner.png";
+import phygital_banner from "/assets/phygital_banner.png";
+import drowsiness_banner from "/assets/drowsiness_banner.png";
 
 const Projects = () => {
   const [filter, setFilter] = useState('all');
@@ -15,62 +18,97 @@ const Projects = () => {
   const projectsData = [
     {
       id: 1,
-      src: viberr,
-      link: "https://github.com/maxtro64/spotify-clone.git",
-      liveLink: "https://spotify-clone-demo.netlify.app",
-      title: "Spotify Clone",
-      description: "A full-stack music streaming application built with React and Node.js",
-      longDescription: "Complete music streaming platform with user authentication, playlist management, search functionality, and real-time music playback. Features include user profiles, favorite songs, and responsive design.",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Socket.io"],
+      src: medflow_banner,
+      link: "https://github.com/maxtro64/HospitalManagement",
+      liveLink: "https://hospitalmanagement-3f5z.onrender.com",
+      title: "Hospital Management System",
+      description: "Advanced Hospital Management System for patient lifecycles and real-time ward tracking.",
+      longDescription: "A comprehensive healthcare ERP featuring secure JWT authentication and real-time data visualization of hospital occupancy and workflows.",
+      technologies: ["React", "Node.js", "MongoDB", "Express", "Chart.js"],
       category: "fullstack",
       featured: true,
       status: "completed"
     },
     {
       id: 2,
-      src: ChatApp,
-      link: "https://github.com/maxtro64/chat-app.git",
-      liveLink: "https://hangout-chat-demo.netlify.app",
-      title: "Hangout Chat",
-      description: "Real-time chat application with modern UI and advanced features",
-      longDescription: "Modern chat application with real-time messaging, file sharing, emoji support, typing indicators, and group chat functionality. Built with Socket.io for seamless communication.",
-      technologies: ["React", "Socket.io", "Node.js", "MongoDB", "Tailwind"],
-      category: "fullstack",
+      src: lexisum_banner,
+      link: "https://github.com/maxtro64/Ai-Notes-summarizer",
+      title: "Ai-Notes-summarizer",
+      description: "Intelligent NLP engine that extracts core insights from complex academic notes.",
+      longDescription: "An automated document processing system utilizing OpenAI's NLP capabilities for semantic summarization and insight extraction.",
+      technologies: ["Python", "OpenAI API", "Flask", "NLTK", "React"],
+      category: "ai",
       featured: true,
       status: "completed"
     },
     {
       id: 3,
-      src: Hospital_Management,
-      link: "https://github.com/maxtro64/HospitalManagement.git",
-      liveLink: "https://hospital-mgmt-demo.netlify.app",
-      title: "Hospital Management System",
-      description: "Comprehensive hospital management system with patient and staff management",
-      longDescription: "Complete hospital management solution featuring patient registration, appointment scheduling, medical records, staff management, and billing system. Includes admin dashboard and role-based access.",
-      technologies: ["React", "Node.js", "MongoDB", "Express", "Chart.js"],
-      category: "fullstack",
-      featured: false,
+      src: blitzwing_banner,
+      link: "https://github.com/maxtro64/Blitzwing",
+      liveLink: "https://blitzwing4k.vercel.app/",
+      title: "Blitzwing",
+      description: "Multi-modal AI chatbot architected for context-aware conversations and task automation.",
+      longDescription: "A high-concurrency chatbot platform leveraging Gemini Pro for intelligent multi-modal interactions and low-latency task execution.",
+      technologies: ["Next.js", "Gemini Pro API", "Tailwind CSS", "Vercel"],
+      category: "ai",
+      featured: true,
       status: "completed"
     },
     {
       id: 4,
-      src: elevateyou,
-      link: "https://github.com/maxtro64/elevate-you.git",
-      liveLink: "https://elevate-you-demo.netlify.app",
-      title: "Elevate You",
-      description: "Mental wellness platform with mood tracking and meditation guides",
-      longDescription: "Comprehensive mental wellness platform featuring mood tracking, guided meditation, progress analytics, community support, and personalized recommendations for mental health improvement.",
-      technologies: ["React", "Node.js", "MongoDB", "Chart.js", "PWA"],
-      category: "frontend",
+      src: phygital_banner,
+      link: "https://github.com/maxtro64/Phygital",
+      title: "Phygital",
+      description: "Hyperlocal commerce platform bridging physical retail with digital proximity indexing.",
+      longDescription: "A revolutionary shopping experience connecting local store inventories with digital users through precise geographic discovery.",
+      technologies: ["React Native", "Node.js", "MongoDB", "Google Maps API"],
+      category: "fullstack",
       featured: true,
-      status: "in-progress"
+      status: "completed"
+    },
+    {
+      id: 5,
+      src: drowsiness_banner,
+      link: "https://github.com/maxtro64/Drowsiness-detector-using-YOLO",
+      title: "Drowsiness Detector",
+      description: "Real-time AI safety system utilizing YOLOv8 for sub-50ms fatigue monitoring.",
+      longDescription: "Critical safety application for drivers, employing computer vision to detect early signs of fatigue with audio alert triggers.",
+      technologies: ["Python", "YOLOv8", "OpenCV", "PySide6"],
+      category: "ai",
+      featured: false,
+      status: "completed"
+    },
+    {
+      id: 6,
+      src: "/assets/elevateyou.webp",
+      link: "https://github.com/maxtro64/RAG_Teaching_Assistant_ML",
+      title: "RAG Teaching Assistant ML",
+      description: "Educational AI utilizing Retrieval-Augmented Generation for cited text retrieval.",
+      longDescription: "Academic assistant providing hyper-accurate answers from textbook datasets with minimized hallucinations using vector re-ranking.",
+      technologies: ["Python", "LangChain", "Pinecone DB", "Gemini API"],
+      category: "ai",
+      featured: true,
+      status: "completed"
+    },
+    {
+      id: 7,
+      src: "/assets/Chatapp.png",
+      link: "https://github.com/maxtro64/Realtime-Chat-App",
+      liveLink: "https://realtime-chat-app-frontend-v9ie.onrender.com",
+      title: "Real-Time Chat Application",
+      description: "Scalable messaging platform with Redis Pub/Sub for world-wide low-latency sync.",
+      longDescription: "A high-performance communication engine designed for massive concurrent connections and real-time message broadcasting.",
+      technologies: ["React", "Socket.io", "Redis", "Node.js", "Tailwind"],
+      category: "fullstack",
+      featured: false,
+      status: "completed"
     }
   ];
 
   const categories = [
     { key: 'all', label: 'All Projects', count: projectsData.length },
+    { key: 'ai', label: 'AI & ML', count: projectsData.filter(p => p.category === 'ai').length },
     { key: 'fullstack', label: 'Full Stack', count: projectsData.filter(p => p.category === 'fullstack').length },
-    { key: 'frontend', label: 'Frontend', count: projectsData.filter(p => p.category === 'frontend').length },
     { key: 'featured', label: 'Featured', count: projectsData.filter(p => p.featured).length }
   ];
 

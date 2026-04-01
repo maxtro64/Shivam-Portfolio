@@ -4,6 +4,7 @@ import './App.css'
 import Skills from './Skills/Skills'
 import Hero from './sections/Hero'
 import Contact from './Contact/Contact'
+import Experience from './common/Experience'
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <Hero/>
      <Projects/>
      <Skills/>
+     <Experience/>
     <Contact/>
     </>
   )
